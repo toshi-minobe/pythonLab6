@@ -10,8 +10,13 @@ def encoded_pass(encode_pass):
     encoded_list_str = map(str, encoded_list)
     encoded_password = ''.join(encoded_list_str)
     return encoded_password
-
-
+def decode(user_password):
+    new_string = ''
+    for i in user_password:
+        i = int(i)
+        i -= 3
+        new_string += str(i)
+    return new_string
 if __name__ == '__main__':
     program=True
     while program==True:
@@ -23,7 +28,7 @@ if __name__ == '__main__':
             e_pass =encoded_pass(encode_pass)
             print('Your password has been encoded and stored!')
         if menu_selection=='2':
-            print(f'The encoded password is {e_pass} and the original password is {decoded_pass(e_pass)}.')
+            print(f'The encoded password is {e_pass} and the original password is {decode(e_pass)}.')
         if menu_selection=='3':
             program=False
         print('')
